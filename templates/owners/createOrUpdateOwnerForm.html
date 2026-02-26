@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Owner</h2>
+  <form class="form-horizontal" id="add-owner-form" method="post">
+    <div class="form-group has-feedback">
+
+      <div class="form-group {% if errors.firstName %}has-error{% endif %}">
+        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="first_name" id="firstName" value="{{ owner.firstName }}" />
+          {% if errors.firstName %}
+            <span class="fa fa-remove form-control-feedback" aria-hidden="true"></span>
+            <span class="help-inline">{{ errors.firstName }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="form-group {% if errors.lastName %}has-error{% endif %}">
+        <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="last_name" id="lastName" value="{{ owner.lastName }}" />
+          {% if errors.lastName %}
+            <span class="fa fa-remove form-control-feedback" aria-hidden="true"></span>
+            <span class="help-inline">{{ errors.lastName }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="form-group {% if errors.address %}has-error{% endif %}">
+        <label for="address" class="col-sm-2 control-label">Address</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="address" id="address" value="{{ owner.address }}" />
+          {% if errors.address %}
+            <span class="fa fa-remove form-control-feedback" aria-hidden="true"></span>
+            <span class="help-inline">{{ errors.address }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="form-group {% if errors.city %}has-error{% endif %}">
+        <label for="city" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="city" id="city" value="{{ owner.city }}" />
+          {% if errors.city %}
+            <span class="fa fa-remove form-control-feedback" aria-hidden="true"></span>
+            <span class="help-inline">{{ errors.city }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="form-group {% if errors.telephone %}has-error{% endif %}">
+        <label for="telephone" class="col-sm-2 control-label">Telephone</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="text" name="telephone" id="telephone" value="{{ owner.telephone }}" />
+          {% if errors.telephone %}
+            <span class="fa fa-remove form-control-feedback" aria-hidden="true"></span>
+            <span class="help-inline">{{ errors.telephone }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        {% if is_new %}
+          <button class="btn btn-primary" type="submit">Add Owner</button>
+        {% else %}
+          <button class="btn btn-primary" type="submit">Update Owner</button>
+        {% endif %}
+      </div>
+    </div>
+  </form>
+{% endblock content %}

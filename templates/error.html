@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+  <img src="/resources/images/pets.png" />
+  <h2>Something happened...</h2>
+  {% if status == 404 %}
+    <p>The requested page was not found.</p>
+  {% elif status == 500 %}
+    <p>An internal server error occurred.</p>
+  {% else %}
+    <p>An unexpected error occurred.</p>
+  {% endif %}
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+{% endblock content %}
